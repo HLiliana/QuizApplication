@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@ToString
+@ToString(exclude = {"user"})
 @Getter
 @Setter
 @Entity

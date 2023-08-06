@@ -5,18 +5,25 @@ import com.QuizApplication.model.Question;
 import com.QuizApplication.model.Quiz;
 import jakarta.persistence.*;
 import jakarta.servlet.annotation.WebServlet;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@WebServlet("/quiz")
-@PersistenceContext
+@EqualsAndHashCode
+@ToString
+@Table(name = "quizzes")
 public class QuizRepository {
+    private EntityManager entityManager;
+    public void setEntityManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
 
+    @PersistenceContext
 
     EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Eclipselink_JPA");
-    EntityManager entityManager = emFactory.createEntityManager();
     private List<Quiz> quizList;
     Set<Quiz> quizSet = new HashSet<>();
     public List<Quiz> getAllQuizzes() {
@@ -77,6 +84,7 @@ public class QuizRepository {
         } catch (Exception e) {
             throw new BusinessException("Quiz does not exist");
         }
+
 
         return quiz;
     }
