@@ -13,6 +13,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -289,5 +290,21 @@ public class QuestionRepository {
         }
         return aRandomList;
     }
+
+    public Question getQuestionOneByOne (List<Question> questionList) {
+        Question question = questionList.get(1);
+        return question;
+
+        }
+    public List<String> getAllCorrectAnswer (List<Question> aQuestionList) {
+        List<String> correctAnswers = new ArrayList<>();
+        for (Question question:aQuestionList) {
+            correctAnswers.add(question.getCorrectAnswer());
+        }
+        return correctAnswers;
+    }
 }
+
+
+
 

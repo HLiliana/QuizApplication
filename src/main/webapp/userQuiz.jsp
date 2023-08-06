@@ -88,7 +88,7 @@ li a:hover {
             <td><%=quiz.getName() %></td>
             <td><%=quiz.getCategory() %></td>
             <td><%=quiz.getDifficulty() %></td>
-            <td><input type="submit" value="Play Quiz"/>
+            <td><form action="startQuiz.jsp"> <input type="submit" value="Play Quiz" /> </form></td>
         </tr>
         <%
         } %>

@@ -3,6 +3,8 @@ package com.QuizApplication.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Getter
@@ -51,5 +53,19 @@ public class Question {
         this.incorrectAnswer1 = incorrectAnswer1;
         this.incorrectAnswer2 = incorrectAnswer2;
         this.incorrectAnswer3 = incorrectAnswer3;
+    }
+    public List<String> getShuffledAnswerOptions() {
+        List<String> answerOptions = new ArrayList<>();
+        answerOptions.add(correctAnswer);
+        answerOptions.add(incorrectAnswer1);
+        answerOptions.add(incorrectAnswer2);
+        answerOptions.add(incorrectAnswer3);
+
+        Collections.shuffle(answerOptions);
+
+        return answerOptions;
+    }
+    public boolean isUserAnswerCorrect(String userAnswer) {
+        return userAnswer.equals(correctAnswer);
     }
 }
