@@ -15,8 +15,40 @@
     <link rel="stylesheet" href="style2.css">
 </head>
 <body>
-    <h1>Quiz Result</h1>
+<style>
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #D18812;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: blue;
+  text-align: center;
+  font-weight: bold;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #c7d112;
+}
+</style>
+
+
+<ul>
+  <li><a href="userQuiz.jsp">My Quizzes</a></li>
+  <li style="float:right"><a href="welcomeUser.jsp">Homepage</a></li>
+
+</ul>
     <%!
          List<Question> questionList;
          QuizRepository quizRepository = new QuizRepository();
@@ -26,8 +58,12 @@
      %>
 
     <%
+        UserRepository userRepository = new UserRepository();
+        User authenticatedUser = (User) session.getAttribute("authenticatedUser");
         String quizName =request.getParameter("quizName");
-        Quiz quiz = quizRepository.findByName(quizName);
+        List<Quiz> userList = userRepository.getAllQuizzesForSpecificUser(authenticatedUser);
+        Quiz quiz = userRepository.findQuizFromUserList(quizName, userList);
+
         questionList = quiz.getQuestionList();
 
         int score = 0;
@@ -41,8 +77,9 @@
     %>
 
     <h2>Quiz Result:</h2>
-    <p>Total Score: <%= score %>/<%= totalQuestions %></p>
-    <h1>Sper ca va place guys</h1>
+    <h2>Total Score: <%= score %>/<%= totalQuestions %></h2>
+
+
 </body>
 </html>
 

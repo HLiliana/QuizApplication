@@ -18,15 +18,16 @@
     <link rel="stylesheet" href="style3.css">
 </head>
 <body>
-    <h1>Welcome to the Quiz</h1>
-
     <%
-                          QuestionRepository questionRepo = new QuestionRepository();
-                          QuizRepository quizRepository = new QuizRepository();
                           UserRepository userRepository = new UserRepository();
                           User authenticatedUser = (User) session.getAttribute("authenticatedUser");
-                          List<Quiz> userList  = authenticatedUser.getAllQuizzesForSpecificUser(authenticatedUser);
-                          Quiz quiz = userList.get(0);
+                          String quizName = request.getParameter("quizName");
+
+                          QuestionRepository questionRepo = new QuestionRepository();
+                          QuizRepository quizRepository = new QuizRepository();
+                          List<Quiz> userList = userRepository.getAllQuizzesForSpecificUser(authenticatedUser);
+                          Quiz quiz = userRepository.findQuizFromUserList(quizName, userList);
+
                           List<Question> questionList = quizRepository.getQuestionListFromQuiz(quiz);
                           List<String> correctAnswer = questionRepo.getAllCorrectAnswer(questionList);
     %>
@@ -38,7 +39,6 @@
 
     <h2>Quiz Questions:</h2>
     <form action="submitQuiz.jsp" method="post">
-        <%-- Loop through the questions and display them with options --%>
         <% for (Question question : questionList) { %>
             <p><%= question.getQuestionDescription() %></p>
             <% List<String> shuffledOptions = question.getShuffledAnswerOptions(); %>
@@ -48,7 +48,7 @@
             <% } %>
             <br>
         <% } %>
-        <input type="hidden" name="quizName" value="<%= quiz.getName() %>"> <%-- Send the quizId as a hidden field --%>
+        <input type="hidden" name="quizName" value="<%= quiz.getName() %>">
         <input type="submit" value="Submit Quiz">
     </form>
 </body>

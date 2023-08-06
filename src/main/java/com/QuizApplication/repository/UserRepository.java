@@ -1,6 +1,7 @@
 package com.QuizApplication.repository;
 
 import com.QuizApplication.exception.BusinessException;
+import com.QuizApplication.model.Question;
 import com.QuizApplication.model.Quiz;
 import com.QuizApplication.model.User;
 import jakarta.persistence.*;
@@ -8,9 +9,12 @@ import lombok.*;
 import lombok.EqualsAndHashCode;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @ToString
+@Getter
+@Setter
 @EqualsAndHashCode
 public class UserRepository {
     Set<User> userList = new HashSet<>();
@@ -257,5 +261,20 @@ public class UserRepository {
         } catch (RuntimeException e) {
             throw new BusinessException("Internal connection problem.");
         }
+    }
+    public Quiz findQuizFromUserList(String name, List<Quiz> aQuizList) throws BusinessException {
+
+        for(Quiz quiz:aQuizList) {
+            if(quiz.getName().equalsIgnoreCase(name)) {
+                return quiz;
+            }
+        }
+
+        return null;
+    }
+
+    public List<Quiz> getAllQuizzesForSpecificUser(User user) {
+        List<Quiz> quizList = user.getQuizCustomList();
+        return quizList;
     }
 }
