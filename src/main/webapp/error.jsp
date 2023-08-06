@@ -1,6 +1,10 @@
 <html>
 <body>
 
+
+
+
+
 <h3> User and/or password incorrect </h3>
 <h3>Please use one option below</h3>
 <form action="index.jsp" method="get">
