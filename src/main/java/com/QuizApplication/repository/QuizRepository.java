@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -202,7 +203,11 @@ public class QuizRepository {
         }
         return quiz;
         }
-
+    public List<Question> getQuestionListFromQuiz (Quiz quiz) {
+        List<Question> question = new ArrayList<>();
+        question = quiz.getQuestionList();
+        return  question;
+    }
     }
 
 
