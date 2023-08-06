@@ -11,6 +11,10 @@
 
     session.setAttribute("loggedInEmail", loggedInEmail);
 
+
+
+
+
     User user = userRepository.getUserByEmail(loggedInEmail);
 %>
 
