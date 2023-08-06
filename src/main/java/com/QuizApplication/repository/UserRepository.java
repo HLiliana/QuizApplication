@@ -5,18 +5,21 @@ import com.QuizApplication.model.Quiz;
 import com.QuizApplication.model.User;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.EqualsAndHashCode;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@ToString
+@EqualsAndHashCode
 public class UserRepository {
     Set<User> userList = new HashSet<>();
-    //entityManager as private and with set,
-    //so I can use it in Test as well
     private EntityManager entityManager;
+
     public void setEntityManager(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
+
     @PersistenceContext
     EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Eclipselink_JPA");
 
@@ -210,6 +213,7 @@ public class UserRepository {
             }
         }
     }
+
     public void addQuizToUserToDatabase(User user, Quiz quiz) throws BusinessException {
         try {
             if (user.addQuizToUser(quiz)) {
@@ -221,7 +225,7 @@ public class UserRepository {
                 } catch (RuntimeException e) {
                     throw new BusinessException("Internal problem with adding to data base.");
                 }
-            }else{
+            } else {
                 throw new BusinessException("Invalid user or quiz.");
             }
         } catch (RuntimeException e) {
@@ -229,5 +233,29 @@ public class UserRepository {
         }
     }
 
+    public boolean deleteQuizFromDatabase(User user, String name) throws BusinessException {
+        if (user == null) {
+            throw new BusinessException("Invalid user.");
+        }
+        QuizRepository quizRepository = new QuizRepository();
+        if (!quizRepository.isQuizDataValid(name)) {
+            throw new BusinessException("Invalid quiz name.");
+        }
+        try (EntityManager entityManager = emFactory.createEntityManager()) {
+            try {
+                entityManager.getTransaction().begin();
+                Query query = entityManager.createQuery("SELECT q FROM Quiz q WHERE q.name  ILIKE :name", Quiz.class);
+                query.setParameter("name", name);
+                Quiz quiz = (Quiz) query.getSingleResult();
+                entityManager.remove(quiz);
+                user.deleteQuizFromList(name);
+                entityManager.getTransaction().commit();
+                return true;
+            } catch (BusinessException e) {
+                throw new BusinessException("Quiz cannot be found in database.");
+            }
+        } catch (RuntimeException e) {
+            throw new BusinessException("Internal connection problem.");
+        }
+    }
 }
-

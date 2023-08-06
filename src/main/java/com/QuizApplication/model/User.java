@@ -6,6 +6,7 @@ import lombok.*;
 import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+
 import java.util.List;
 
 @Entity
@@ -60,7 +61,7 @@ public class User {
             throw new BusinessException("Quiz new difficulty should be at least 4 characters long and maxim 50 characters,"
                     + " must include only letters, digits and spaces.");
         }
-        if (questions.size()<4) {
+        if (questions.size() < 4) {
             throw new BusinessException("Quiz list of questions should have 4 answers");
         }
         Quiz quiz = new Quiz(name, category, difficulty, questions);
@@ -89,8 +90,23 @@ public class User {
         quizCustomList.add(quiz);
         return true;
     }
+
     public List<Quiz> getAllQuizzesForSpecificUser(User user) {
         List<Quiz> quizList = user.getQuizCustomList();
         return quizList;
+    }
+
+    public boolean deleteQuizFromList(String quizName) throws BusinessException {
+        Quiz quizToDelete = null;
+        if (quizName != null || !quizName.isEmpty()) {
+            for (Quiz quiz : quizCustomList) {
+                if (quiz.getName().equalsIgnoreCase(quizName)) {
+                    quizToDelete = quiz;
+                }
+            }
+        } else {
+            throw new BusinessException("Quiz name was not found in user`s quiz list.");
+        }
+        return quizCustomList.remove(quizToDelete);
     }
 }
