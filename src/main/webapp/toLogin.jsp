@@ -17,6 +17,39 @@
    <title>Quiz Application</title>
 </head>
 <body>
+<style>
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #99d9ea;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  font-weight: bold;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #FFFFFF;
+}
+</style>
+
+
+<ul>
+  <li><a href="index.jsp">Back</a></li>
+
+</ul>
          <% //Display the confirmation message if it exists//received from update
          if (session.getAttribute("confirmationMessage") != null) { %>
             <p><%= session.getAttribute("confirmationMessage") %></p>
@@ -31,8 +64,7 @@
 
 
 </br>
-</br>
-</br>
+
                 <form action="login.jsp" method="post">
 
                 <input  type="text" name="email" placeholder="Email">
