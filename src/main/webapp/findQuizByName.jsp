@@ -37,8 +37,8 @@
               </tr>
               </table>
 
-<form action="mainQuiz.jsp">
-<input type="submit" value="Back to Quiz"/>
+<form action="welcomeUser.jsp">
+<input type="submit" value="Back"/>
 </form>
   </body>
 </html>

@@ -41,7 +41,7 @@ li a:hover {
 
      <form action="testUpdateQuestion.jsp">
              <div class="form-outline mb-4">
-                  <input type="text" name="id" value="Id..." onclick="this.value=''" /><br/>
+                  <input type="text" name="id" value="Number..." onclick="this.value=''" /><br/>
               </div>
          <div class="form-outline mb-4">
              <input type="text" name="questionDescription" placeholder="Question..."/><br/>

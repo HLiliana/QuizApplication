@@ -49,11 +49,11 @@ li a:hover {
 
 
 <ul>
-  <li><a href="mainQuiz.jsp">Back</a></li>
+  <li><a href="welcomeUser.jsp">Back</a></li>
   <li><a href="toAddQuestion.jsp">Add question</a></li>
   <li><a href="toUpdateQuestion.jsp">Update question</a></li>
   <li><a href="toDeleteQuestion.jsp">Delete question</a></li>
-  <li><a href="toFindQuestionById.jsp">Search question by Id</a></li>
+  <li><a href="toFindQuestionById.jsp">Search question by Number</a></li>
   <li style="float:right"><a href="welcomeUser.jsp">Homepage</a></li>
 
 
@@ -81,9 +81,6 @@ li a:hover {
            <th>Answer 2</th>
            <th>Answer 3</th>
            <th>Answer 4</th>
-           <th>Add favorites</th>
-
-
            </tr>
        <%
                    QuestionRepository questionRepo = new QuestionRepository();
@@ -99,7 +96,6 @@ li a:hover {
                        <td><%= question.getIncorrectAnswer1() %></td>
                        <td> <%= question.getIncorrectAnswer2() %></td>
                        <td> <%= question.getIncorrectAnswer3() %></td>
-                       <td><input type="submit" value="Add to favorites"/>
                    </tr>
                <% } %>
 </table>

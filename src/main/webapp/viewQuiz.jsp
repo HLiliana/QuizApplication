@@ -110,9 +110,6 @@ li a:hover {
            <th>Answer 2</th>
            <th>Answer 3</th>
            <th>Answer 4</th>
-           <th>Add favorites</th>
-
-
            </tr>
        <%
                    QuizRepository quizRepository = new QuizRepository();
@@ -129,7 +126,6 @@ li a:hover {
                        <td><%= question.getIncorrectAnswer1() %></td>
                        <td> <%= question.getIncorrectAnswer2() %></td>
                        <td> <%= question.getIncorrectAnswer3() %></td>
-                       <td><input type="submit" value="Add to favorites"/>
                    </tr>
                <% } %>
 </table>

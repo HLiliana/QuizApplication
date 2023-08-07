@@ -36,7 +36,7 @@ li a:hover {
 
 
 <ul>
-  <li><a href="mainQuiz.jsp">Back</a></li>
+  <li><a href="welcomeUser.jsp">Back</a></li>
   <li style="float:right"><a href="welcomeUser.jsp">Homepage</a></li>
 
 </ul>
