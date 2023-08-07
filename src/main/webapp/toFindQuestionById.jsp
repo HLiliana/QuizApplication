@@ -6,7 +6,7 @@
 
 <body>
 
-<h2>Find question</h2>
+<h1 style="color:black">Find question</h1>
 
      <form action="findQuestionById.jsp">
 

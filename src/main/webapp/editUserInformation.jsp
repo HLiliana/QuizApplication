@@ -10,21 +10,19 @@
     String username = session.getAttribute("username").toString();
 
     session.setAttribute("loggedInEmail", loggedInEmail);
-
-
-
-
-
     User user = userRepository.getUserByEmail(loggedInEmail);
 %>
 
+
 <html>
-    <head><meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+    <head>
+
     <link rel="stylesheet" href="style2.css">
     <title>Update Account Information</title>
     </head>
 <body>
-    <h1>Account Information for <%=username%></h1>
+
+    <h1 style="color:black">Account Information for <%=username%></h1>
 
     <form action="updateUser.jsp">
          <div class="form-outline mb-4">
@@ -42,8 +40,8 @@
            <br>
            <br>
 
-        <h1>Update Your account information</h1>
-         <div class="form-outline mb-4">
+        <h1 style="color:black">Update Your account information</h1>
+         <div class="form-outline ">
              <input type="text" name="newUsername" value="New username..." onclick="this.value=''" required/><br/>
          </div>
          <div class="form-outline mb-4">
@@ -59,7 +57,7 @@
          <input type="submit" value="Update">
     </form>
 
-    <h1>Delete Account Information</h1>
+    <h1 style="color:black">Delete Account Information</h1>
     <form action="deleteUser.jsp">
              <div class="form-outline mb-4">
                  <input type="text" name="email" value="Email..." onclick="this.value=''"/><br/>
@@ -73,7 +71,6 @@
              <br>
               <input type ="submit" value="Delete user">
 
-
-
 </body>
 </html>
+

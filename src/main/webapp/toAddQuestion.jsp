@@ -4,7 +4,7 @@
 </head>
 <body>
 
-<h2>Add a new question</h2>
+<h1 style="color:black">Add a new question</h1>
 
      <form action="addQuestion.jsp">
          <div class="form-outline mb-4">

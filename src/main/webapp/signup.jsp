@@ -11,7 +11,7 @@
 </head>
 <body>
         <title>SignUp Form</title>
-    <h1>Please enter your data: </h1>
+    <h1 style="color:black">Please enter your data: </h1>
 
     <form action="addUser.jsp">
              <div class="form-outline mb-4">

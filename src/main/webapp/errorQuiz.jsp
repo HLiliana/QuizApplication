@@ -3,8 +3,8 @@
 <head>
 <link rel="stylesheet" href="style2.css">
 </head>
-<h3> You have entered a wrong quiz id </h3>
-<h3>Please use a valid Id</h3>
+<h1 style="color:black"> You have entered a wrong quiz id </h1>
+<h1 style="color:black">Please use a valid Id</h1>
 
 <form action="findQuizById.jsp">
      <div class="form-outline mb-4">

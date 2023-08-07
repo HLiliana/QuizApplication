@@ -6,7 +6,7 @@
 
 
 
-<h1>Add a quiz</h1>
+<h1 style="color:black">Add a quiz</h1>
 
 
      <form action="addQuiz.jsp">

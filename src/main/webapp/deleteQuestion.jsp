@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="style2.css">
 </head>
 <body>
-
+<h1 style="color:black"> Question deleted </h1>
     <form action="mainQuestion.jsp">
         <br/>
           <input type="submit" value="Back to questions" class="btn btn-primary btn-block"/>
