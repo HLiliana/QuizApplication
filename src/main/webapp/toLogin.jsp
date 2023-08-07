@@ -33,17 +33,19 @@
 </br>
 </br>
 </br>
-
-
                 <form action="login.jsp" method="post">
-                <strong>  Email</strong>:<input type="text" name="email" required>
+
+                <input  type="text" name="email" placeholder="Email">
                 <br>
-                <strong>Password</strong>:<input type="password" name="password" required>
+
+                <input  type="password" name="password" placeholder="Password">
                 <br>
-                </br>
+                <br>
                 <input type="submit" value="Login"/>
-                <br>
+
+                </br>
                 </form>
+
 
 
 </body>

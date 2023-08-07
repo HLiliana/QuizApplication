@@ -50,6 +50,7 @@ li a:hover {
 
 
 <ul>
+  <li><a href="mainQuiz.jsp">Back</a></li>
   <li><a href="toCreateAQuiz.jsp">Create Quiz</a></li>
   <li><a href="toAddQuiz.jsp">Add quiz</a></li>
   <li><a href="toDeleteQuiz.jsp">Delete quiz</a></li>

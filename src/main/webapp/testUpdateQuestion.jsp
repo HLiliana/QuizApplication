@@ -15,7 +15,6 @@
                             String newIncorrectAnswer2 = request.getParameter("incorrectAnswer2");
                             String newIncorrectAnswer3 = request.getParameter("incorrectAnswer3");
                             QuestionRepository repository = new QuestionRepository();
-                            QuestionService questionService = new QuestionService();
                             Question questionToBeUpdated = repository.findQuestionById(id);
                             Question questionFromUser = repository.retrieveQuestionFromUser(id, newCategory, newDifficulty, newCorrectAnswer, newIncorrectAnswer1, newIncorrectAnswer2, newIncorrectAnswer3, newQuestionDescription);
                             Question questionUpdated = repository.updateOneQuestion(questionToBeUpdated, questionFromUser);
