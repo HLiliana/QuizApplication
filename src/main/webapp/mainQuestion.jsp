@@ -49,6 +49,7 @@ li a:hover {
 
 
 <ul>
+  <li><a href="mainQuiz.jsp">Back</a></li>
   <li><a href="toAddQuestion.jsp">Add question</a></li>
   <li><a href="toUpdateQuestion.jsp">Update question</a></li>
   <li><a href="toDeleteQuestion.jsp">Delete question</a></li>
