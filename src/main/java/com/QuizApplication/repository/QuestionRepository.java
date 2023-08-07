@@ -103,7 +103,51 @@ public class QuestionRepository {
         emFactory.close();
 
     }
-
+    public Question updateOneQuestion(Question questionToBeUpdated, Question questionGivenByUser) {
+        Question questionUpdated = new Question();
+        if(questionGivenByUser.getId() > 0) {
+            questionUpdated.setId(questionGivenByUser.getId());
+        }
+        else {
+            questionUpdated.setId(questionToBeUpdated.getId());
+        }
+        if (questionGivenByUser.getCategory()!=null && isQuestionDataValid(questionGivenByUser.getCategory())) {
+            questionUpdated.setCategory(questionGivenByUser.getCategory());
+        } else {
+            questionUpdated.setCategory(questionToBeUpdated.getCategory());
+        }
+        if (questionGivenByUser.getDifficulty() != null && isQuestionDataValid(questionGivenByUser.getDifficulty())) {
+            questionUpdated.setDifficulty(questionGivenByUser.getDifficulty());
+        } else {
+            questionUpdated.setDifficulty(questionToBeUpdated.getCategory());
+        }
+        if (questionGivenByUser.getCorrectAnswer()!= null && isQuestionDataValid(questionGivenByUser.getCorrectAnswer())) {
+            questionUpdated.setCorrectAnswer(questionGivenByUser.getCorrectAnswer());
+        } else {
+            questionUpdated.setCorrectAnswer(questionToBeUpdated.getCorrectAnswer());
+        }
+        if (questionGivenByUser.getIncorrectAnswer1() != null && isQuestionDataValid(questionGivenByUser.getIncorrectAnswer1())) {
+            questionUpdated.setIncorrectAnswer1(questionGivenByUser.getIncorrectAnswer1());
+        } else {
+            questionUpdated.setIncorrectAnswer1(questionToBeUpdated.getIncorrectAnswer1());
+        }
+        if (questionGivenByUser.getIncorrectAnswer2() != null && isQuestionDataValid(questionGivenByUser.getIncorrectAnswer2())) {
+            questionUpdated.setIncorrectAnswer2(questionGivenByUser.getIncorrectAnswer2());
+        } else {
+            questionUpdated.setIncorrectAnswer2(questionToBeUpdated.getIncorrectAnswer2());
+        }
+        if (questionGivenByUser.getIncorrectAnswer3() != null && isQuestionDataValid(questionGivenByUser.getIncorrectAnswer3())) {
+            questionUpdated.setIncorrectAnswer3(questionGivenByUser.getIncorrectAnswer3());
+        } else {
+            questionUpdated.setIncorrectAnswer3(questionToBeUpdated.getIncorrectAnswer3());
+        }
+        if (questionGivenByUser.getQuestionDescription() != null && isQuestionDataValid(questionGivenByUser.getQuestionDescription())) {
+            questionUpdated.setQuestionDescription(questionGivenByUser.getQuestionDescription());
+        } else {
+            questionUpdated.setQuestionDescription(questionToBeUpdated.getQuestionDescription());
+        }
+        return questionUpdated;
+    }
     public void updateQuestion(Question question) throws Exception {
         if (question == null) {
             throw new Exception("There is no question");
@@ -302,6 +346,63 @@ public class QuestionRepository {
             correctAnswers.add(question.getCorrectAnswer());
         }
         return correctAnswers;
+    }
+
+    public boolean dataExists (String term){
+        if(term != null && !term.matches("")) {
+            return true;
+        }
+        return false;
+
+    }
+    public Question retrieveQuestionFromUser (String id, String newCategory, String newDifficulty, String newCorrectAnswer, String newIncorrectAnswer1, String newIncorrectAnswer2, String newIncorrectAnswer3, String newQuestionDescription) {
+       Question question = new Question();
+        if(dataExists(id)) {
+            question.setId(Integer.parseInt(id));
+        }
+        if(dataExists(newCategory)) {
+            question.setCategory(newCategory);
+        }
+        else {
+            question.setCategory(null);
+        }
+        if(dataExists(newDifficulty)) {
+            question.setDifficulty(newDifficulty);
+        }
+        else {
+            question.setDifficulty(null);
+        }
+        if (dataExists(newCorrectAnswer)) {
+            question.setCorrectAnswer(newCorrectAnswer);
+        }
+        else {
+            question.setCorrectAnswer(null);
+        }
+        if (dataExists(newIncorrectAnswer1)) {
+            question.setIncorrectAnswer1(newIncorrectAnswer1);
+        }
+        else {
+            question.setIncorrectAnswer1(null);
+        }
+        if (dataExists(newIncorrectAnswer2)) {
+            question.setIncorrectAnswer2(newIncorrectAnswer2);
+        }
+        else {
+            question.setIncorrectAnswer2(null);
+        }
+        if (dataExists(newIncorrectAnswer3)) {
+            question.setIncorrectAnswer3(newIncorrectAnswer3);
+        }
+        else {
+            question.setIncorrectAnswer3(null);
+        }
+        if (dataExists(newQuestionDescription)) {
+            question.setQuestionDescription(newQuestionDescription);
+        }
+        else {
+            question.setQuestionDescription(null);
+        }
+        return question;
     }
 }
 
