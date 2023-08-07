@@ -50,12 +50,13 @@ li a:hover {
 
 
 <ul>
-  <li><a href="mainQuiz.jsp">Back</a></li>
+  <li><a href="welcomeUser.jsp">Back</a></li>
   <li><a href="toCreateAQuiz.jsp">Create Quiz</a></li>
   <li><a href="toAddQuiz.jsp">Add quiz</a></li>
   <li><a href="toDeleteQuiz.jsp">Delete quiz</a></li>
   <li><a href="toUpdateQuiz.jsp">Update quiz</a></li>
   <li style="float:right"><a href="welcomeUser.jsp">Homepage</a></li>
+  <li style="float:right"><a href="projectMade.jsp">Team</a></li>
 
 </ul>
 
@@ -78,9 +79,10 @@ li a:hover {
          } %>
 
 <br>
-<br>
-<br>
 
+
+       <h1 style="color:black; margin: auto;"> <strong>My quiz list</strong> </h1>
+<br>
 <div style="  width: 70%; margin: 0 auto; display:block; height: 500px; overflow-y:scroll; position: relative; display: flex; background-color: rgba(153,217,234, 0.9); text-color: white;"
 
 <table>
@@ -88,6 +90,7 @@ li a:hover {
    <table border="1" class="table table-striped table-hover w-50 p-3">
       <thread>
        <tr>
+           <th>Number</th>
            <th>Name</th>
            <th>Category</th>
            <th>Difficulty</th>
@@ -100,10 +103,11 @@ li a:hover {
         User authenticatedUser = (User) session.getAttribute("authenticatedUser");
 
         List<Quiz> userList  = authenticatedUser.getAllQuizzesForSpecificUser(authenticatedUser);
-
+        int count=1;
         for(Quiz quiz : userList){
         %>
         <tr>
+            <td><%= count++ %> </td>
             <td><%=quiz.getName() %></td>
             <td><%=quiz.getCategory() %></td>
             <td><%=quiz.getDifficulty() %></td>

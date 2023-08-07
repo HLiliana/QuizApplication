@@ -55,7 +55,10 @@ li a:hover {
 
 
 <ul>
-  <li><a href="mainQuiz.jsp">Play quiz</a></li>
+    <li><a href="userQuiz.jsp">Quizzes</a></li>
+    <li><a href="mainQuestion.jsp">Questions</a></li>
+    <li><a href="toFindQuizById.jsp">Search quiz by Id</a></li>
+    <li><a href="toFindQuizByName.jsp">Search quiz by Name</a></li>
     <li style="float:right"><a href="index.jsp">Sign out</a></li>
   <li style ="float:right"><a href="editUserInformation.jsp">Edit Profile</a></li>
 </ul>

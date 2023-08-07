@@ -70,7 +70,14 @@ li a:hover {
         int totalQuestions = questionList.size();
         int totalScore = totalQuestions * 10;
         for (Question question : questionList) {
-            String userAnswer = request.getParameter("question_" + question.getId());
+            String userAnswer="";
+             if(request.getParameter("question_" + question.getId())!=null){
+             userAnswer = request.getParameter("question_" + question.getId());
+            }
+            else
+            {
+            userAnswer="null";
+            }
             if (question.isUserAnswerCorrect(userAnswer)) {
                 score+=10;
             }
