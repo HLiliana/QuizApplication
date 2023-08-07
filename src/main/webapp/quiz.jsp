@@ -26,7 +26,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #D18812;
+  background-color: #99d9ea;
 }
 
 li {
@@ -35,7 +35,7 @@ li {
 
 li a {
   display: block;
-  color: blue;
+  color: black;
   text-align: center;
   font-weight: bold;
   padding: 14px 16px;
@@ -43,7 +43,7 @@ li a {
 }
 
 li a:hover {
-  background-color: #c7d112;
+  background-color: #FFFFFF;
 }
 </style>
 
@@ -51,8 +51,6 @@ li a:hover {
 <ul>
   <li><a href="mainQuiz.jsp">To quiz</a></li>
   <li><a href="mainQuestion.jsp">To questions</a></li>
-
-
   <li style="float:right"><a href="index.jsp">Back to login</a></li>
 </ul>
 

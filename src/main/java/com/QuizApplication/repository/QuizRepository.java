@@ -16,15 +16,12 @@ import java.util.Set;
 @EqualsAndHashCode
 @ToString
 @Table(name = "quizzes")
+@PersistenceContext
 public class QuizRepository {
-    private EntityManager entityManager;
-    public void setEntityManager(EntityManager entityManager) {
-        this.entityManager = entityManager;
-    }
-
-    @PersistenceContext
 
     EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Eclipselink_JPA");
+    EntityManager entityManager = emFactory.createEntityManager();
+
     private List<Quiz> quizList;
     Set<Quiz> quizSet = new HashSet<>();
     public List<Quiz> getAllQuizzes() {

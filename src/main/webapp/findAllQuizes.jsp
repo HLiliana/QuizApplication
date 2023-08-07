@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.4/dist/bootstrap-table.min.css">
   </head>
 <body>
-    <h1>Table with all quizzes</h1>
+    <h1 style="color:black">Table with all quizzes</h1>
     <table border="1" class="table table-dark w-25 p-3">
         <tr>
             <th>ID</th>

@@ -6,7 +6,7 @@
 
 <body>
 
-<h2>Find quiz</h2>
+<h1 style="color:black">Find quiz</h1>
 
      <form action="findQuizById.jsp">
 

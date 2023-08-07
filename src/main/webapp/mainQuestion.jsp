@@ -26,7 +26,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #D18812;
+  background-color: #99d9ea;
 }
 
 li {
@@ -35,7 +35,7 @@ li {
 
 li a {
   display: block;
-  color: blue;
+  color: black;
   text-align: center;
   font-weight: bold;
   padding: 14px 16px;
@@ -43,17 +43,16 @@ li a {
 }
 
 li a:hover {
-  background-color: #c7d112;
+  background-color: #FFFFFF;
 }
 </style>
 
 
 <ul>
   <li><a href="toAddQuestion.jsp">Add question</a></li>
-  <li><a href="toRandomQuestion.jsp">Create random questions</a></li>
   <li><a href="toUpdateQuestion.jsp">Update question</a></li>
   <li><a href="toDeleteQuestion.jsp">Delete question</a></li>
-  <li><a href="toFindQuestionById.jsp">Search by Id</a></li>
+  <li><a href="toFindQuestionById.jsp">Search question by Id</a></li>
   <li style="float:right"><a href="welcomeUser.jsp">Homepage</a></li>
 
 
@@ -81,7 +80,7 @@ li a:hover {
            <th>Answer 2</th>
            <th>Answer 3</th>
            <th>Answer 4</th>
-           <th>Submit answer</th>
+           <th>Add favorites</th>
 
 
            </tr>
@@ -95,11 +94,11 @@ li a:hover {
                        <td><%= question.getQuestionDescription() %></td>
                        <td><%= question.getCategory() %></td>
                        <td><%= question.getDifficulty() %></td>
-                       <td><input type="checkbox"> <%= question.getCorrectAnswer() %></td>
-                       <td><input type="checkbox"> <%= question.getIncorrectAnswer1() %></td>
-                       <td><input type="checkbox"> <%= question.getIncorrectAnswer2() %></td>
-                       <td><input type="checkbox"> <%= question.getIncorrectAnswer3() %></td>
-                       <td><input type="submit" value="Submit answer"/>
+                       <td><%= question.getCorrectAnswer() %></td>
+                       <td><%= question.getIncorrectAnswer1() %></td>
+                       <td> <%= question.getIncorrectAnswer2() %></td>
+                       <td> <%= question.getIncorrectAnswer3() %></td>
+                       <td><input type="submit" value="Add to favorites"/>
                    </tr>
                <% } %>
 </table>

@@ -4,7 +4,7 @@
 </head>
 <body>
 
-<h2>Update question</h2>
+<h1 style="color:black">Update question</h1>
 
      <form action="updateQuestion.jsp">
              <div class="form-outline mb-4">

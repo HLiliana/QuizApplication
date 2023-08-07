@@ -27,7 +27,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #D18812;
+  background-color: #99d9ea;
 }
 
 li {
@@ -36,7 +36,7 @@ li {
 
 li a {
   display: block;
-  color: blue;
+  color: black;
   text-align: center;
   font-weight: bold;
   padding: 14px 16px;
@@ -44,7 +44,7 @@ li a {
 }
 
 li a:hover {
-  background-color: #c7d112;
+  background-color: #FFFFFF;
 }
 </style>
 
@@ -57,8 +57,20 @@ li a:hover {
   <li style="float:right"><a href="welcomeUser.jsp">Homepage</a></li>
 
 </ul>
-<br>
-<br>
+
+<%
+  if (session.getAttribute("successMessageAddQuiz") != null) { %>
+            <p><%= session.getAttribute("successMessageAddQuiz") %></p>
+            <% session.removeAttribute("successMessageAddQuiz"); %>
+         <% } %>
+         <%
+           if (session.getAttribute("confirmationMessageDelete") != null) { %>
+                     <p><%= session.getAttribute("confirmationMessageDelete") %></p>
+                     <% session.removeAttribute("confirmationMessageDelete"); %>
+                  <%
+                  } %>
+
+
 <br>
 <br>
 <br>

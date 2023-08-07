@@ -20,7 +20,7 @@
 
             String confirmationMessageDelete = "Quiz was deleted";
             request.getSession().setAttribute("confirmationMessageDelete", confirmationMessageDelete);
-            response.sendRedirect("mainQuiz.jsp");
+            response.sendRedirect("userQuiz.jsp");
 
             } else {
                 request.setAttribute("errorMessage", "Quiz was not found in the user`s quiz list.");

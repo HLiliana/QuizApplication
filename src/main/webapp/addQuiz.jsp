@@ -22,7 +22,7 @@
         String successMessageAddQuiz = "Quiz was added.";
 
         request.getSession().setAttribute("successMessageAddQuiz", successMessageAddQuiz);
-        response.sendRedirect("mainQuiz.jsp");
+        response.sendRedirect("userQuiz.jsp");
 
         } catch (BusinessException e) {
             request.setAttribute("errorMessage", e.getMessage());

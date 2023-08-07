@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<h2> Delete a quiz </h2>
+<h1 style="color:black"> Delete a quiz </h1>
 
 <form action="deleteQuiz.jsp">
          <div class="form-outline mb-4">

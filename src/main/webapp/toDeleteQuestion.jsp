@@ -6,7 +6,7 @@
 
 <body>
 
-<h2>Delete question</h2>
+<h1 style="color:black">Delete question</h1>
 
      <form action="deleteQuestion.jsp">
 

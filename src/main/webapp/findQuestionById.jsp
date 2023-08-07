@@ -10,6 +10,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.4/dist/bootstrap-table.min.css">
+    <link rel="stylesheet" href="style2.css">
+
   </head>
 <body>
 
@@ -17,20 +19,20 @@
 
    <table border="1" class="table table-striped table-hover w-50 p-3">
        <tr>
-           <th>ID</th>
+           <th>Number</th>
            <th>Question</th>
            <th>Category</th>
            <th>Difficulty</th>
-           <th>Correct Answer</th>
-           <th>Incorrect Answer1</th>
-           <th>Incorrect Answer2</th>
-           <th>Incorrect Answer3</th>
+           <th>Answer1</th>
+           <th>Answer2</th>
+           <th>Answer3</th>
+           <th>Answer4</th>
 
 
            </tr>
        <%
-                    String id = request.getParameter("id");
-                   QuestionRepository questionRepo = new QuestionRepository();
+                  String id = request.getParameter("id");
+                  QuestionRepository questionRepo = new QuestionRepository();
                   Question question = questionRepo.findQuestionById(id);
                %>
                    <tr>
@@ -44,4 +46,13 @@
                        <td><%= question.getIncorrectAnswer3() %></td>
                    </tr>
 
+
+
 </table>
+
+<form action="mainQuestion.jsp">
+<input type="submit" value="Back to Question"/>
+</form>
+
+</body>
+</html>

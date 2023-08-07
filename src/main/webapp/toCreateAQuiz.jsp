@@ -5,7 +5,7 @@
 
 <body>
 
-<h1>Create quiz</h1>
+<h1 style="color:black">Create quiz</h1>
 
      <form action="createQuiz.jsp">
          <div class="form-outline mb-4">

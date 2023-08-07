@@ -7,7 +7,7 @@
 
 
 
-<h2> Update quiz by name </h2>
+<h1 style="color:black"> Update quiz by name </h1>
 <form action="updateQuizByName.jsp" method="post">
 <div class="form-outline mb-4">
                              <input type="text" name="name" value="Name..." onclick="this.value=''" required/>

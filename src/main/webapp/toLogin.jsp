@@ -41,7 +41,7 @@
                 <strong>Password</strong>:<input type="password" name="password" required>
                 <br>
                 </br>
-                <input type="submit" value="Login" class="btn btn-primary btn-block"/>
+                <input type="submit" value="Login"/>
                 <br>
                 </form>
 

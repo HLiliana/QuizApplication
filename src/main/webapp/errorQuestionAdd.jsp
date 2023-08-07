@@ -11,7 +11,7 @@
     <title>Error Page</title>
 </head>
 <body>
-    <h1>Error</h1>
+    <h1 style="color:black">Error</h1>
     <p>${errorMessage}</p>
 </body>
 </html>
