@@ -50,32 +50,16 @@ li a:hover {
 
 
 <ul>
-  <li><a href="toCreateAQuiz.jsp">Create Quiz</a></li>
-  <li><a href="toAddQuiz.jsp">Add quiz</a></li>
-  <li><a href="toDeleteQuiz.jsp">Delete quiz</a></li>
-  <li><a href="toUpdateQuiz.jsp">Update quiz</a></li>
+  <li><a href="userQuiz.jsp">Back</a></li>
   <li style="float:right"><a href="welcomeUser.jsp">Homepage</a></li>
 
 </ul>
-
-<%
-  if (session.getAttribute("successMessageAddQuiz") != null) { %>
-            <p><%= session.getAttribute("successMessageAddQuiz") %></p>
-            <% session.removeAttribute("successMessageAddQuiz"); %>
-         <% } %>
-         <%
-           if (session.getAttribute("confirmationMessageDelete") != null) { %>
-                     <p><%= session.getAttribute("confirmationMessageDelete") %></p>
-                     <% session.removeAttribute("confirmationMessageDelete"); %>
-                  <%
-                  } %>
-
-
 <br>
 <br>
 <br>
-
-<div style="  width: 70%; margin: 0 auto; display:block; height: 500px; overflow-y:scroll; position: relative; display: flex; background-color: rgba(153,217,234, 0.9); text-color: white;"
+<div style= "width 100%; display: flex;" >
+    <div style= "float:left; width: 30%; display: inline-block; margin-left: 20px;">
+        <div style="  width: 20%; height: 100px; background-color: rgba(153,217,234, 0.9); text-color: white;">
 
 <table>
 
@@ -86,16 +70,16 @@ li a:hover {
            <th>Category</th>
            <th>Difficulty</th>
            <th>Play Quiz</th>
-           <th>View Quiz</th>
 
        </tr>
        </thread>
 <%
+        UserRepository userRepository = new UserRepository();
         User authenticatedUser = (User) session.getAttribute("authenticatedUser");
-
         List<Quiz> userList  = authenticatedUser.getAllQuizzesForSpecificUser(authenticatedUser);
+        String quizName =request.getParameter("quizName");
+        Quiz quiz = userRepository.findQuizFromUserList(quizName, userList);
 
-        for(Quiz quiz : userList){
         %>
         <tr>
             <td><%=quiz.getName() %></td>
@@ -105,14 +89,54 @@ li a:hover {
             <input type="hidden" name="quizName" value="<%= quiz.getName() %>">
             <input type="submit" value="Play Quiz" />
             </form></td>
-            <td><form action="viewQuiz.jsp">
-                        <input type="hidden" name="quizName" value="<%= quiz.getName() %>">
-                        <input type="submit" value="View Quiz" />
-                        </form></td>
         </tr>
-        <%
-        } %>
 </table>
+        </div>
+    </div>
+    <div style=" width: 70%; display: inline-block; ">
+        <div style="  width: 84%;  position: relative; height: 500px; overflow-y:scroll; background-color: rgba(153,217,234, 0.9); text-color: white;">
+<table>
+
+   <table border="1" class="table table-striped table-hover w-50 p-3">
+
+       <tr>
+
+
+           <th>Number</th>
+           <th>Question</th>
+           <th>Category</th>
+           <th>Difficulty</th>
+           <th>Answer 1</th>
+           <th>Answer 2</th>
+           <th>Answer 3</th>
+           <th>Answer 4</th>
+           <th>Add favorites</th>
+
+
+           </tr>
+       <%
+                   QuizRepository quizRepository = new QuizRepository();
+                   QuestionRepository questionRepo = new QuestionRepository();
+                   List<Question> questionList = quizRepository.getQuestionListFromQuiz(quiz);
+                   for (Question question : questionList) {
+               %>
+                   <tr>
+                       <td><%= question.getId() %></td>
+                       <td><%= question.getQuestionDescription() %></td>
+                       <td><%= question.getCategory() %></td>
+                       <td><%= question.getDifficulty() %></td>
+                       <td><%= question.getCorrectAnswer() %></td>
+                       <td><%= question.getIncorrectAnswer1() %></td>
+                       <td> <%= question.getIncorrectAnswer2() %></td>
+                       <td> <%= question.getIncorrectAnswer3() %></td>
+                       <td><input type="submit" value="Add to favorites"/>
+                   </tr>
+               <% } %>
+</table>
+        </div>
+    </div>
 </div>
+
+
 </body>
 </html>
