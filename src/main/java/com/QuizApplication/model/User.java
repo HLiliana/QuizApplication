@@ -90,6 +90,7 @@ public class User {
         quizCustomList.add(quiz);
         return true;
     }
+//de verificat unde o folosesc si mutat in user repository total
 
     public List<Quiz> getAllQuizzesForSpecificUser(User user) {
         List<Quiz> quizList = user.getQuizCustomList();

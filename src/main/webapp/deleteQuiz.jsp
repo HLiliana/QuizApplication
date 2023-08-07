@@ -15,8 +15,10 @@
         User authenticatedUser = (User) session.getAttribute("authenticatedUser");
 
     try {
-          boolean isDeleted = userRepository.deleteQuizFromDatabase(authenticatedUser, name);
-          if(isDeleted){
+        boolean isQuizFromUserList = userRepository.doesQuizExistInUserList(authenticatedUser, name);
+
+        if(isQuizFromUserList){
+            userRepository.deleteQuizFromDatabase(authenticatedUser, name );
 
             String confirmationMessageDelete = "Quiz was deleted";
             request.getSession().setAttribute("confirmationMessageDelete", confirmationMessageDelete);

@@ -58,18 +58,23 @@ li a:hover {
 
 </ul>
 
-<%
-  if (session.getAttribute("successMessageAddQuiz") != null) { %>
+         <%
+            if (session.getAttribute("successMessageAddQuiz") != null) { %>
             <p><%= session.getAttribute("successMessageAddQuiz") %></p>
             <% session.removeAttribute("successMessageAddQuiz"); %>
          <% } %>
          <%
            if (session.getAttribute("confirmationMessageDelete") != null) { %>
-                     <p><%= session.getAttribute("confirmationMessageDelete") %></p>
-                     <% session.removeAttribute("confirmationMessageDelete"); %>
-                  <%
-                  } %>
-
+           <p><%= session.getAttribute("confirmationMessageDelete") %></p>
+           <% session.removeAttribute("confirmationMessageDelete"); %>
+         <%
+         } %>
+         <%
+           if (session.getAttribute("confirmationUpdateMessage") != null) { %>
+           <p><%= session.getAttribute("confirmationUpdateMessage") %></p>
+           <% session.removeAttribute("confirmationUpdateMessage"); %>
+         <%
+         } %>
 
 <br>
 <br>
@@ -106,9 +111,9 @@ li a:hover {
             <input type="submit" value="Play Quiz" />
             </form></td>
             <td><form action="viewQuiz.jsp">
-                        <input type="hidden" name="quizName" value="<%= quiz.getName() %>">
-                        <input type="submit" value="View Quiz" />
-                        </form></td>
+            <input type="hidden" name="quizName" value="<%= quiz.getName() %>">
+            <input type="submit" value="View Quiz" />
+            </form></td>
         </tr>
         <%
         } %>
