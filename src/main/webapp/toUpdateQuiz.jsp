@@ -14,16 +14,16 @@
                              <br/>
                          </div>
     <div class="form-outline mb-4">
-                             <input type="text" name="newName" value="New name..." onclick="this.value=''" required/>
+                             <input type="text" name="newName" value="New name..." onclick="this.value=''" />
                              <br/>
                          </div>
     <div class="form-outline mb-4">
-               <input type="text" name="newCategory" value="New category..." onclick="this.value=''" required/>
+               <input type="text" name="newCategory" value="New category..." onclick="this.value=''" />
                <br/>
                    </div>
 
    <div class="form-outline mb-4">
-                <input type="text" name="newDifficulty" value="New difficulty..." onclick="this.value=''" required/>
+                <input type="text" name="newDifficulty" value="New difficulty..." onclick="this.value=''" />
                 <br>
                     </div>
                     <br>

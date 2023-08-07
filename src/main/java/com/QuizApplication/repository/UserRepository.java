@@ -8,6 +8,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.EqualsAndHashCode;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -241,8 +242,7 @@ public class UserRepository {
         if (user == null) {
             throw new BusinessException("Invalid user.");
         }
-        QuizRepository quizRepository = new QuizRepository();
-        if (!quizRepository.isQuizDataValid(name)) {
+        if (!user.isQuizDataValid(name)) {
             throw new BusinessException("Invalid quiz name.");
         }
         try (EntityManager entityManager = emFactory.createEntityManager()) {
@@ -256,16 +256,17 @@ public class UserRepository {
                 entityManager.getTransaction().commit();
                 return true;
             } catch (BusinessException e) {
-                throw new BusinessException("Quiz cannot be found in database.");
+                throw new BusinessException("Internal connection problem.");
             }
         } catch (RuntimeException e) {
-            throw new BusinessException("Internal connection problem.");
+            throw new BusinessException("Quiz cannot be found in database.");
         }
     }
+
     public Quiz findQuizFromUserList(String name, List<Quiz> aQuizList) throws BusinessException {
 
-        for(Quiz quiz:aQuizList) {
-            if(quiz.getName().equalsIgnoreCase(name)) {
+        for (Quiz quiz : aQuizList) {
+            if (quiz.getName().equalsIgnoreCase(name)) {
                 return quiz;
             }
         }
@@ -276,5 +277,51 @@ public class UserRepository {
     public List<Quiz> getAllQuizzesForSpecificUser(User user) {
         List<Quiz> quizList = user.getQuizCustomList();
         return quizList;
+    }
+
+    public boolean doesQuizExistInUserList(User user, String name) {
+        for (Quiz quiz : user.getQuizCustomList()) {
+            if (quiz.getName().equalsIgnoreCase(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Quiz updateQuizFromUserList(User user, String name, String newName, String newCategory, String newDifficulty) throws BusinessException {
+        try (EntityManager entityManager = emFactory.createEntityManager()) {
+            try {
+                entityManager.getTransaction().begin();
+                Query query = entityManager.createQuery("SELECT q FROM Quiz q WHERE q.name ILIKE :name", Quiz.class);
+                query.setParameter("name", name);
+                Quiz quiz = (Quiz) query.getSingleResult();
+
+                if (newName != null && user.isQuizDataValid(newName)) {
+                    quiz.setName(newName);
+                } else {
+                    throw new BusinessException("Quiz new name should be at least 4 characters long and maxim 50 characters,"
+                            + " must include only letters, digits and spaces.");
+                }
+                if (newCategory != null && user.isQuizDataValid(newCategory)) {
+                    quiz.setCategory(newCategory);
+                } else {
+                    throw new BusinessException("Quiz new category should be at least 4 characters long and maxim 50 characters,"
+                            + " must include only letters, digits and spaces.");
+                }
+                if (newDifficulty != null && user.isQuizDataValid(newDifficulty)) {
+                    quiz.setDifficulty(newDifficulty);
+                } else {
+                    throw new BusinessException("Quiz new difficulty should be at least 4 characters long and maxim 50 characters,"
+                            + " must include only letters, digits and spaces.");
+                }
+                quiz = entityManager.merge(quiz);
+                entityManager.getTransaction().commit();
+                return quiz;
+            } catch (
+                    NoResultException e) {
+                entityManager.getTransaction().rollback();
+                throw new BusinessException("Quiz cannot be found in database.");
+            }
+        }
     }
 }
