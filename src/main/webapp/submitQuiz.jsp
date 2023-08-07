@@ -68,16 +68,17 @@ li a:hover {
 
         int score = 0;
         int totalQuestions = questionList.size();
+        int totalScore = totalQuestions * 10;
         for (Question question : questionList) {
             String userAnswer = request.getParameter("question_" + question.getId());
             if (question.isUserAnswerCorrect(userAnswer)) {
-                score++;
+                score+=10;
             }
         }
     %>
 
     <h2>Quiz Result:</h2>
-    <h2>Total Score: <%= score %>/<%= totalQuestions %></h2>
+    <h2>Total Score: <%= score %>/<%= totalScore %></h2>
 
 
 </body>
