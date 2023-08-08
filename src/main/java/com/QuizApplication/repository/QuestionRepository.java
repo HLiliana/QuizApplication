@@ -260,7 +260,7 @@ public class QuestionRepository {
     public List<Question> getMultipleQuestions() throws BusinessException {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://opentdb.com/api.php?amount=20&category=27&difficulty=easy&type=multiple"))
+                .uri(URI.create("https://opentdb.com/api.php?amount=10&category=20&difficulty=easy&type=multiple"))
                 .build();
 
         try {

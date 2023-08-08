@@ -56,7 +56,7 @@ li a:hover {
   <li><a href="toDeleteQuiz.jsp">Delete quiz</a></li>
   <li><a href="toUpdateQuiz.jsp">Update quiz</a></li>
   <li style="float:right"><a href="welcomeUser.jsp">Homepage</a></li>
-  <li style="float:right"><a href="projectMade.jsp">Team</a></li>
+
 
 </ul>
 
