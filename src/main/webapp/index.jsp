@@ -49,7 +49,7 @@ li a:hover {
 <ul>
   <li style="float:right"><a href="signup.jsp">Sign Up</a></li>
   <li style="float:right"><a href="toLogin.jsp">Login</a></li>
-
+<li style="float:right"><a href="projectMade.jsp">Team</a></li>
 
 </ul>
 <h1> Welcome to Quiz ME! </h1>
