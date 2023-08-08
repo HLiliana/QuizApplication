@@ -6,6 +6,9 @@
 <%@ page import="java.util.List" %>
 
 <html>
+<head>
+<title>Update quiz</title>
+</head>
 <body>
 <%
     String name = request.getParameter("name");

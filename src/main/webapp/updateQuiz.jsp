@@ -2,6 +2,9 @@
 <%@ page import="com.QuizApplication.model.Question" %>
 
 <html>
+<head>
+<title>Update quiz</title>
+</head>
 <body>
 <h1 style="color:black"> The Quiz is updated </h1>
 

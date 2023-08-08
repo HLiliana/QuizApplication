@@ -2,6 +2,7 @@
 <body>
 <head>
 <link rel="stylesheet" href="style2.css">
+<title>Error page</title>
 </head>
 <h1 style="color:black"> You have entered a wrong quiz id </h1>
 <h1 style="color:black">Please use a valid Id</h1>

@@ -6,8 +6,6 @@
 <html>
 <head>
 <link rel="stylesheet" href="style2.css">
-</head>
-<head>
     <title>Error Page</title>
 </head>
 <body>

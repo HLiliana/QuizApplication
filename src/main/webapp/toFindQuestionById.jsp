@@ -2,6 +2,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="style2.css">
+<title>Search question</title>
 </head>
 
 <body>
