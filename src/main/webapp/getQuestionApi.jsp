@@ -31,7 +31,7 @@
     <title>Functional API</title>
 </head>
 <body>
-    <h1>Welcome to Functional API</h1>
+    <h1>Welcome to Single Functional API</h1>
 </body>
 </html>
 

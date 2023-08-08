@@ -23,7 +23,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
             <link rel="stylesheet" href="styles.css">
-<title>Welcome to the Quiz Application!</title>
+<title>Quiz Application!</title>
 </head>
 <body>
             <% //Display the confirmation message if it exists//received from update

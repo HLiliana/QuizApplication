@@ -2,6 +2,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="style2.css">
+<title>Delete quiz</title>
 </head>
 <body>
 <style>

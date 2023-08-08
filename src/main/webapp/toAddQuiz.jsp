@@ -1,6 +1,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="style2.css">
+<title>Add quiz</title>
 </head>
 <body>
 <style>

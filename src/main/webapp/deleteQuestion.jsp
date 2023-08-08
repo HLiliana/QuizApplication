@@ -6,6 +6,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="style2.css">
+<title>Quiz Application!</title>
 </head>
 <body>
 <h1 style="color:black"> Question deleted </h1>

@@ -1,6 +1,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="style2.css">
+<title>Update question</title>
 </head>
 <body>
 <style>

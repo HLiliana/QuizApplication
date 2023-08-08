@@ -1,4 +1,5 @@
 <html>
+<title>Error page</title>
 <body>
 
 
