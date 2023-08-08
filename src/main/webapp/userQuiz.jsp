@@ -52,9 +52,8 @@ li a:hover {
 <ul>
   <li><a href="welcomeUser.jsp">Back</a></li>
   <li><a href="toCreateAQuiz.jsp">Create Quiz</a></li>
-  <li><a href="toAddQuiz.jsp">Add quiz</a></li>
-  <li><a href="toDeleteQuiz.jsp">Delete quiz</a></li>
   <li><a href="toUpdateQuiz.jsp">Update quiz</a></li>
+  <li><a href="toDeleteQuiz.jsp">Delete quiz</a></li>
   <li style="float:right"><a href="welcomeUser.jsp">Homepage</a></li>
 
 
@@ -78,7 +77,7 @@ li a:hover {
          <%
          } %>
 
-<br>
+
 
 
        <h1 style="color:black; margin: auto;"> <strong>My quiz list</strong> </h1>
