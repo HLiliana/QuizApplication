@@ -50,10 +50,11 @@ li a:hover {
 
 <ul>
   <li><a href="welcomeUser.jsp">Back</a></li>
+  <li><a href="toFindQuestionById.jsp">Search by Number</a></li>
   <li><a href="toAddQuestion.jsp">Add</a></li>
   <li><a href="toUpdateQuestion.jsp">Update</a></li>
   <li><a href="toDeleteQuestion.jsp">Delete</a></li>
-  <li><a href="toFindQuestionById.jsp">Search by Number</a></li>
+
   <li style="float:right"><a href="welcomeUser.jsp">Homepage</a></li>
 
 

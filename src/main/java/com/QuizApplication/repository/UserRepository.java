@@ -76,7 +76,7 @@ public class UserRepository {
                 try {
                     user = (User) query.getSingleResult();
                 } catch (NoResultException e) {
-                    throw new BusinessException("Email not found in the database.");
+                    throw new BusinessException("User does not exist, please enter a valid user or sign up.");
                 }
 
                 if (!user.getPassword().equals(password)) {
