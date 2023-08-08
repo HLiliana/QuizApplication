@@ -86,6 +86,10 @@ li a:hover {
 
     <h2>Quiz Result:</h2>
     <h2>Total Score: <%= score %>/<%= totalScore %></h2>
+    <%
+    if(score> totalScore/2) {
+    %> <h2> Congratulations, you passed the quiz!!! </h2> <%}
+    else {%> <h2> Please repeat the quiz </h2> <% } %>
 
 
 </body>

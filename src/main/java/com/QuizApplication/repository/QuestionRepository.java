@@ -119,7 +119,7 @@ public class QuestionRepository {
         if (questionGivenByUser.getDifficulty() != null && isQuestionDataValid(questionGivenByUser.getDifficulty())) {
             questionUpdated.setDifficulty(questionGivenByUser.getDifficulty());
         } else {
-            questionUpdated.setDifficulty(questionToBeUpdated.getCategory());
+            questionUpdated.setDifficulty(questionToBeUpdated.getDifficulty());
         }
         if (questionGivenByUser.getCorrectAnswer()!= null && isQuestionDataValid(questionGivenByUser.getCorrectAnswer())) {
             questionUpdated.setCorrectAnswer(questionGivenByUser.getCorrectAnswer());

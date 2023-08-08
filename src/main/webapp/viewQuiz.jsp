@@ -116,10 +116,11 @@ li a:hover {
                    QuizRepository quizRepository = new QuizRepository();
                    QuestionRepository questionRepo = new QuestionRepository();
                    List<Question> questionList = quizRepository.getQuestionListFromQuiz(quiz);
+                   int count=1;
                    for (Question question : questionList) {
                %>
                    <tr>
-                       <td><%= question.getId() %></td>
+                       <td><%= count++ %></td>
                        <td><%= question.getQuestionDescription() %></td>
                        <td><%= question.getCategory() %></td>
                        <td><%= question.getDifficulty() %></td>
